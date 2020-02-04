@@ -1,0 +1,35 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+steps:
+  - name: cr-latest
+    image: plugins/docker
+    settings:
+      repo: chuhlomin/telegram-large-files-upload
+      username: chuhlomin
+      password:
+        from_secret: docker_password
+      tags:
+        - ${DRONE_COMMIT:0:7}
+        - latest
+    when:
+      event: push
+      branch: develop
+
+  - name: cr-release
+    image: plugins/docker
+    settings:
+      repo: chuhlomin/telegram-large-files-upload
+      username: chuhlomin
+      password:
+        from_secret: docker_password
+      tags:
+        - ${DRONE_TAG}
+    when:
+      event: tag
+
+trigger:
+  branch:
+    - master

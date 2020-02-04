@@ -8,7 +8,6 @@ from os import environ, path
 
 api_id = environ['API_ID']
 api_hash = environ['API_HASH']
-phone = environ['PHONE']
 filePath = environ['FILE_PATH']
 sendTo = environ['SEND_TO']
 caption = environ['CAPTION']
@@ -37,10 +36,11 @@ with TelegramClient('session/large-files-upload', api_id, api_hash) as client:
         attributes=[DocumentAttributeAudio(
             duration=int(file.info.time_secs),
             voice=None,
-            title="title"
+            title=file.tag.title,
+            performer=file.tag.artist
         )],
         caption=caption
     )
-
     bar.finish()
+
     client.disconnect()
