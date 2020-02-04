@@ -16,7 +16,7 @@ steps:
         - latest
     when:
       event: push
-      branch: develop
+      branch: master
 
   - name: cr-release
     image: plugins/docker
