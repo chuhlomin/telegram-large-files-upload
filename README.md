@@ -1,5 +1,7 @@
 # Telegram Large Files Upload
 
+[![Build Status](https://ci.chuhlomin.com/api/badges/chuhlomin/telegram-large-files-upload/status.svg)](https://ci.chuhlomin.com/chuhlomin/telegram-large-files-upload) [![Docker Hub](https://img.shields.io/badge/duckerhub-lightgrey)](https://hub.docker.com/repository/docker/chuhlomin/telegram-large-files-upload)
+
 ## Requirements
 
 [Register a new Telegram app](https://my.telegram.org/apps), get `api_id`, `api_hash`.
